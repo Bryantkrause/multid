@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blue',
 ]
 
 MIDDLEWARE = [
@@ -74,10 +75,15 @@ WSGI_APPLICATION = 'multi.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': {},
+    'users_db': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'NAME': BASE_DIR / 'users.db.sqlite3',
+                  },
+    'blue_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'blue.db.sqlite3',
+        }
 }
 
 
@@ -121,3 +127,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DATABASE_ROUTERS = ['routers.db_routers.AuthRouter',
+                    'routers.db_routers.Blue']
