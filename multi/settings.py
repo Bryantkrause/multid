@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blue',
+    'aqua'
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,10 @@ DATABASES = {
     'blue_db': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'blue.db.sqlite3',
+        },
+    'aqua_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'aqua.db.sqlite3',
         }
 }
 
@@ -129,4 +134,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATABASE_ROUTERS = ['routers.db_routers.AuthRouter',
-                    'routers.db_routers.Blue']
+                    'routers.db_routers.Blue',
+                    'routers.db_routers.Aqua']
